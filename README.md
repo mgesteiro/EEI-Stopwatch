@@ -13,12 +13,12 @@ The working principle of the **EEI-Stopwatch** is quite simple, although the log
 
 * All the information is shown in a 4-digit 7-segment LED display (*output*).
 * User actions are received via a two momentary buttons analog keypad (*input*).
-* It has a Tof laser sensor that measures the distance to the nearest object in front of it continuously.
-* When this distance is bellow a configured value, i.e., when ***something passes in fron of it***, a detection is triggered: `TDISTANCE`, 20 cm by default.
-* It gives some room for the object to pass completely to avoid repetitive triggering: `DCWINDOW`, 1.9 s by default.
+* It has a Tof Laser sensor that measures the distance to the nearest object in front of it continuously.
+* When this distance is bellow a configured value, i.e., when ***something passes in front of it***, a detection is triggered: `TDISTANCE` (20 cm by default).
+* It gives some room for the object to pass completely to avoid repetitive triggering: `DCWINDOW` (1.9 s by default).
 * It uses the internal clock of the microcontroller to measure times.
-* It times up to as many laps as configured: `NUMLAPS`, 4 by default.
-* It shows temporarily the time for each lap after measuring it: `SLWINDOW`, 2 s by default.
+* It times up to as many laps as configured: `NUMLAPS` (4 by default).
+* It shows temporarily the time for each lap after measuring it: `SLWINDOW` (2 s by default).
 
 
 ## OPERATION
@@ -30,10 +30,10 @@ The use of the **EEI-Stopwatch** is fairly straightforward and can be done mostl
 2. Once started, the EEI-Stopwatch is in ***Distance Measuring Mode***: it shows the distance -in centimeters- to the nearest object in front of the sensor.
 	* Use this to **position it about 15-20 cm** from the *racing line*: use your own hand as reference for the sensor. Ideally, position it in the side of a straitgh line, perpendicular to it (like in the picture).
 	* Once positioned, **clear all the objects** in front of it (to avoid *false triggers*) and **press the yellow button** to initiate the ***Stopwatch Mode***.
-3. Once in the ***Stopwatch Mode***, the time won't start until it detects a *passing object* (anything at less than 20 cm): it's time to put the robot in the track -before the stopwatch itself- and start it (racing time!).
+3. Once in the ***Stopwatch Mode***, the time won't start until it detects a *passing object* (anything at less than 20 cm): it's time to put the robot in the track -behind the stopwatch line- and start it (racing time!).
 	* When the **robot is detected** (as passing in front of it), the stopwatch **starts measuring** the time, and does so until the robot is detected again, **storing the lap time** in that precise moment.
 	* After each lap, the stopwatch **shows temporarily the previous lap time** (during 2 seconds) and then continues to show the current lap time, until the robot is detected again, repeating the process.
-	* There are two possible options now: you can **wait until the robot completes all the laps** that the EEI-Stopwatch can measure in one go (4 by default), or you can **press the yellow button to abort** the process (discarding the current lap). In any case, the EEI-Stopwatch enters the ***Results Mode***.
+	* There are two possible options now: you can **wait until the robot completes all the laps** that the EEI-Stopwatch can measure in one go (4 by default), or you can **press the yellow button to abort** the process (discarding the current lap). In either case, the EEI-Stopwatch enters the ***Results Mode***.
 4. In the ***Results Mode***, you can review all the lap times stored in this go: press the yellow button to cycle through them. Take into account that if the process was aborted, some of the laps may have a *0:00* time.
 5. **RESET:** if you **long-press** the red button (during 1 second at least), the EEI-Stopwatch is reset, clearly showing it with a *RESET animation*, and entering the ***Stopwatch Mode*** again (step 3).
 
@@ -62,7 +62,7 @@ The bottom part is the **powerbank** subsystem that provides 5V to the device an
 
 The EEI-Stopwatch is powered by an **Arduino Nano** which can be programmed with the [Arduino IDE](https://www.arduino.cc/en/software). The code is **thoroughly commented and documented**, and available in the [`code/chrono`](code/chrono) folder:
 
-* There are a number of configuration parameters at the beggining of the `main.ino` file, if you wan't to fine-tune or adapt the operation to your needs (e.g. the number of laps to store, or the different clearing windows).
+* There are a number of configuration parameters at the beggining of the `chrono.ino` file, if you wan't to fine-tune or adapt the operation to your needs (e.g. the number of laps to store, or the different clearing windows).
 * Requires two external libraries: [TM1637TinyDisplay](https://github.com/jasonacox/TM1637TinyDisplay) and [VL53L0X](https://github.com/pololu/vl53l0x-arduino) (directly available within the Arduino IDE library manager).
 * Includes also two local *ad-hoc* libraries: **`AKeypad-lib.h`** and **`Stopwatch.h`** (both *self-explanatory*)
 

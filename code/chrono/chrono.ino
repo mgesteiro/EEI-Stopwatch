@@ -169,7 +169,7 @@ void setup() {
 	if (! tof.init())
 	{
 		Serial.println("Failed to detect and initialize ToF sensor!");
-		display.showString("Tofe");
+		display.showString("toFE");
 		while(1);  // HALT 
 	}
 	tof.setMeasurementTimingBudget(RESOLUTION);  // defined in the configuration section
