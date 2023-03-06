@@ -46,7 +46,7 @@ The use of the **EEI-Stopwatch** is fairly straightforward and can be done mostl
 
 All the **3D parts** (available in the [`3D`](3D) folder) were created using the open-source and free software [FreeCAD](https://www.freecad.org). You can find there also all the STL files ready to be sliced and 3D printed, with **no supports** required at all: it's a very easy print.
 
-<img src="3D/powerbank.png" width="50%"/><img src="3D/chasis.png" width="50%"/>
+![transparent](3D/transparent.png)
 
 Before printing the pieces, make sure that the dimensions of the electronic parts match: tolerances of the 3D models are *quite tight* and I've already found modules with huge differences in size.
 
@@ -54,7 +54,7 @@ Before printing the pieces, make sure that the dimensions of the electronic part
 
 This is the schematic of the system, created using the open-source software [Fritzing](https://fritzing.org) and available in the [`electronics`](electronics) folder.
 
-<p align="center"><img src="electronics/EEI-Stopwatch_bb.png" width="50%" /></p>
+<p align="center"><img src="electronics/EEI-Stopwatch_bb.svg" width="50%" /></p>
 
 The bottom part is the **powerbank** subsystem that provides 5V to the device and is rechargable (using any *typical* 5V micro-USB mobile charger). The top part contains the **4-digit display**, the **ToF laser sensor** and the **analog keypad** (two buttons) along with the **main microcontroller** (an Arduino Nano).
 
